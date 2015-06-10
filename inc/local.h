@@ -45,4 +45,6 @@ char c_time_str[40];
 
 schedule_info_s *local_schedules[MAX_NUMBER_OF_SCHEDULE];
 
+int day_of_month[12];
+
 #endif /* __local_H__ */

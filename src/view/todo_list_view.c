@@ -19,6 +19,54 @@ static void clicked_create_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void
 	create_create_view(conform);
 }
 
+void set_todo_list_view(Evas_Object *parent){
+	Evas_Object *navi = parent;
+	Evas_Object *scroller,
+				*grid,
+				*table,
+				*bg,
+				*label,
+				*button,
+				*image,
+				*box;
+	Elm_Object_Item *navi_it;
+
+	scroller = elm_scroller_add(navi);
+	elm_scroller_bounce_set(scroller,EINA_FALSE, EINA_TRUE);
+	elm_scroller_policy_set(scroller,ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_AUTO);
+
+	grid = elm_grid_add(scroller);
+	evas_object_size_hint_weight_set(grid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(grid, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	elm_object_content_set(scroller, grid);
+
+	bg = elm_bg_add(grid);
+	elm_win_resize_object_add(grid, bg);
+	elm_object_content_set(grid, bg);
+	elm_grid_pack(grid, bg, 0, 0, 100, 100);
+	elm_bg_color_set(bg, 38, 116, 212);
+	evas_object_show(bg);
+
+	navi_it = elm_naviframe_item_push(navi,"ALL",NULL,NULL,scroller,NULL);
+
+	button = elm_button_add(navi);
+	image = elm_image_add(button);
+	elm_image_file_set(image,ICON_DIR"/left_arrow.png",NULL);
+	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
+	elm_object_part_content_set(button,"icon",image);
+//	evas_object_smart_callback_add(button,"clicked",clicked_todo_list_btn_cb,conform);
+	elm_object_item_part_content_set(navi_it,"title_left_btn",button);
+
+	button = elm_button_add(navi);
+	image = elm_image_add(button);
+	elm_image_file_set(image,ICON_DIR"/right_arrow.png",NULL);
+	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
+	elm_object_part_content_set(button,"icon",image);
+//	evas_object_smart_callback_add(button,"clicked",clicked_create_btn_cb,conform);
+	elm_object_item_part_content_set(navi_it,"title_right_btn",button);
+
+}
+
 void create_todo_list_view(Evas_Object *parent){
 	Evas_Object *conform = parent;
 
@@ -26,6 +74,8 @@ void create_todo_list_view(Evas_Object *parent){
 		*layout,
 		*navi,
 		*scroller,
+		*todo_layout,
+		*todo_navi,
 		*grid,
 		*bg,
 		*button,
@@ -45,20 +95,20 @@ void create_todo_list_view(Evas_Object *parent){
 	elm_scroller_bounce_set(scroller,EINA_FALSE, EINA_TRUE);
 	elm_scroller_policy_set(scroller,ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_AUTO);
 
-	grid = elm_grid_add(scroller);
-	evas_object_size_hint_weight_set(grid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(grid, EVAS_HINT_FILL, EVAS_HINT_FILL);
+	todo_layout = elm_layout_add(scroller);
+	elm_layout_theme_set(todo_layout,"layout","application","default");
+	evas_object_size_hint_weight_set(todo_layout, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(todo_layout, EVAS_HINT_FILL, EVAS_HINT_FILL);
 
-	bg = elm_bg_add(grid);
-	elm_win_resize_object_add(grid, bg);
-	elm_object_content_set(grid, bg);
-	elm_grid_pack(grid, bg, 0, 0, 100, 100);
-	elm_bg_color_set(bg, 38, 116, 212);
-	evas_object_show(bg);
+	elm_object_content_set(scroller, todo_layout);
 
-	elm_object_content_set(scroller, grid);
+	todo_navi = elm_naviframe_add(todo_layout);
 
-	navi_it = elm_naviframe_item_push(navi,"Todo list View",NULL,NULL,scroller,NULL);
+	set_todo_list_view(todo_navi);
+
+	elm_object_part_content_set(todo_layout, "elm.swallow.content", todo_navi);
+
+	navi_it = elm_naviframe_item_push(navi,"Todo list",NULL,NULL,scroller,NULL);
 
 	button = elm_button_add(navi);
 	image = elm_image_add(button);
@@ -76,8 +126,7 @@ void create_todo_list_view(Evas_Object *parent){
 	evas_object_smart_callback_add(button,"clicked",clicked_create_btn_cb,conform);
 	elm_object_item_part_content_set(navi_it,"title_right_btn",button);
 
-	Evas_Object *toolbar = elm_toolbar_add(navi);
-
+//	Evas_Object *toolbar = elm_toolbar_add(navi);
 //	elm_toolbar_shrink_mode_set(toolbar, ELM_TOOLBAR_SHRINK_EXPAND);
 //	elm_toolbar_transverse_expanded_set(toolbar, EINA_TRUE);
 //	elm_object_item_part_content_set(navi_it, "toolbar", toolbar);

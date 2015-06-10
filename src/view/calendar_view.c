@@ -31,6 +31,9 @@ void set_calendar_view(Evas_Object *parent){
 				*box;
 	Elm_Object_Item *nf_it;
 
+	int i, j;
+	int cnt = 0;
+
 	scroller = elm_scroller_add(navi);
 	elm_scroller_bounce_set(scroller,EINA_FALSE, EINA_TRUE);
 	elm_scroller_policy_set(scroller,ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_AUTO);
@@ -49,61 +52,47 @@ void set_calendar_view(Evas_Object *parent){
 
 	table = elm_table_add(grid);
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 0, 0, 1, 1);
-	evas_object_show(button);
+	int start_day_of_month = c_time->tm_wday-(c_time->tm_mday%7)+1;
+	int day_cnt = 0;
+	int month[42] = {0,};
+	int days_of_prev_month = day_of_month[c_time->tm_mon-1];
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 1, 1, 1, 1);
-	evas_object_show(button);
+	for(i = start_day_of_month-1; i >= 0; i--){
+		month[i] = days_of_prev_month;
+		days_of_prev_month--;
+	}
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 2, 2, 1, 1);
-	evas_object_show(button);
+	for(i = 0; i < day_of_month[c_time->tm_mon]; i++){
+		month[start_day_of_month + i] = i+1;
+	}
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 3, 3, 1, 1);
-	evas_object_show(button);
+	for(i = day_of_month[c_time->tm_mon] + start_day_of_month; i < 42 ; i ++){
+		day_cnt++;
+		month[i] = day_cnt;
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 4, 4, 1, 1);
-	evas_object_show(button);
+	}
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 5, 5, 1, 1);
-	evas_object_show(button);
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 6, 5, 1, 1);
-	evas_object_show(button);
 
-	button = elm_button_add(grid);
-	evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
-	evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
-	elm_object_text_set(button,"hi");
-	elm_table_pack(table, button, 6, 5, 1, 1);
-	evas_object_show(button);
+	for(i = 0; i < 6; i ++){
+		for(j = 0; j< 7; j ++){
+			char s[60];
+
+			if(j==0) sprintf(s,"<color=#ff0000>%d</color>",month[cnt]);
+			else sprintf(s,"%d",month[cnt]);
+
+			button = elm_button_add(table);
+			evas_object_size_hint_weight_set(button, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+			evas_object_size_hint_align_set(button, EVAS_HINT_FILL, EVAS_HINT_FILL);
+			elm_object_text_set(button,s);
+			elm_table_pack(table, button, j, i, 1, 1);
+			evas_object_show(button);
+			cnt++;
+
+		}
+	}
+
+
 
 	evas_object_size_hint_weight_set(table, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(table, EVAS_HINT_FILL, EVAS_HINT_FILL);

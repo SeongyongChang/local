@@ -167,6 +167,27 @@ main(int argc, char *argv[])
 	time(&time_ptr);
 	c_time = localtime(&time_ptr);
 
+	FILE* fp;
+
+	fp = fopen("./schedule_info.txt","rw");
+
+	fprintf(fp,"SCHEDULE$\n");
+	fprintf(fp,"TITLE$schedule1\n");
+	fprintf(fp,"MEMO$schedule1\n");
+	fprintf(fp,"START$schedule1\n");
+	fprintf(fp,"FINISH$schedule1\n");
+	fprintf(fp,"LOCATION_X$schedule1\n");
+	fprintf(fp,"LOCATION_Y$schedule1\n");
+	fprintf(fp,"TAG$schedule1\n");
+
+	fclose(fp);
+
+	int temp[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
+
+	int i;
+	for(i = 0; i < 12; i++)
+		day_of_month[i] = temp[i];
+
 	ui_app_lifecycle_callback_s event_callback = {0,};
 	app_event_handler_h handlers[5] = {NULL, };
 
