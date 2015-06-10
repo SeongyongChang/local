@@ -164,6 +164,9 @@ main(int argc, char *argv[])
 	appdata_s ad = {0,};
 	int ret = 0;
 
+	time(&time_ptr);
+	c_time = localtime(&time_ptr);
+
 	ui_app_lifecycle_callback_s event_callback = {0,};
 	app_event_handler_h handlers[5] = {NULL, };
 

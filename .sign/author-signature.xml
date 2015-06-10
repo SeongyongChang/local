@@ -4,7 +4,7 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Flocal">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>IAYyjhSop+t7ze91xznNOy6WPzcMO/AElNRt0VZYHeg=</DigestValue>
+<DigestValue>bCt4o4NdnYoqO+iMjvrOraA6AJDUgbtHk8B3yqe+Kdw=</DigestValue>
 </Reference>
 <Reference URI="res%2Fcalendar_icon.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -59,11 +59,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-Z3DH7a1pBSSaDKt0aC8B9CePllDbdvfxBlhJL7x+ADl04ogNOJawavWJnDXLdg+IWeXnSWP0v+8N
-S5HTYHGeq0as5TW8qO9WPk5us2jE7QbqBA+tLlIdhdlc88LAzCTPF/8rOuQ4OfrBVt/cOm8dA0eQ
-tvtNMd6ga2DWrvIBjIEx/Sq6qPRaz8MlcCJNWia8jMbXMgo7d1bWZguaZbGwP8sGE4WTXsqBPXLU
-+IIGwwQN+JdCU10tmUsbp75Me04bqe3IxWMJRSkMESOxbcwrpzdpqPgxrFAKxhOlxRQIGMzUPJbt
-niRUz63LCz5/5+mdZ5q4KEUji09A7dGYLPLGyA==
+aXTY1Sd3niYGtFrOFoqqpoLq+NcEW96pkbhvnPB8EluRPn4IsKEUt7ae7NT830nYuH5tBrnP/EdX
+j0b3sCyBO+efAojMCSquiyAEgtYdffl2oeABzVfNUFII8+j1TcxKUEjbqyVNODa3VDTAM+kEeTV/
+oO76DfvLM0pONebAdBEBaLmI0vaSaBhLRZGoSyK9OWMUAV9l6EuRxFnJt2STNluUWa/6piX33HgG
+MKxkhdtmNRf/FQYSj7Eyw2OrQpgIljFNN6wyxVKdfaFIyOfz8SY1K1aIc2fKNNcyvU15ymSR2+y6
+PKmM+A7sYS5yM5KCVi9VA+gBivXLHZmK8MPIEg==
 </SignatureValue>
 <KeyInfo>
 <X509Data>

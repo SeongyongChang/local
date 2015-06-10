@@ -6,6 +6,7 @@
 #include <system_settings.h>
 #include <efl_extension.h>
 #include <dlog.h>
+#include <time.h>
 
 #include "view/calendar_view.h"
 #include "view/todo_list_view.h"
@@ -37,6 +38,10 @@ typedef struct appdata {
 	Evas_Object *win;
 	Evas_Object *conform;
 } appdata_s;
+
+time_t time_ptr;
+struct tm *c_time;
+char c_time_str[40];
 
 schedule_info_s *local_schedules[MAX_NUMBER_OF_SCHEDULE];
 

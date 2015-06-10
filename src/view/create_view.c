@@ -83,22 +83,18 @@ void create_create_view(Evas_Object *parent){
 	evas_object_show(entry);
 	elm_grid_pack(grid,entry,3,18,94,10);
 
-	time_t time_c;
-	struct tm *time_st;
 
-	time(&time_c);
-	time_st = localtime(&time_c);
 
-	char time_str_st[20];
+
 //	sprintf(time_str_st,"%d 년 %d월 %d일 %d시 %d분 %d초",
 //			time_st->tm_year+1900, time_st->tm_mon, time_st->tm_mday,time_st->tm_hour,time_st->tm_min,time_st->tm_sec);
 
-	strftime(time_str_st,256,"%x",time_st);
+	strftime(c_time_str,256,"%x",c_time);
 
 
 	entry = elm_entry_add(grid);
 	elm_entry_editable_set(entry,EINA_TRUE);
-	elm_object_part_text_set(entry,"guide",time_str_st);
+	elm_object_part_text_set(entry,"guide",c_time_str);
 	elm_entry_markup_filter_append(entry, elm_entry_filter_limit_size, &title_size);
 	evas_object_show(entry);
 	elm_grid_pack(grid,entry,3,28,94,10);
