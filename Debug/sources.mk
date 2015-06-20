@@ -31,4 +31,5 @@ C_DEPS :=
 SUBDIRS := \
 src/view \
 src \
+src/db \
 

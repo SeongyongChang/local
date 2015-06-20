@@ -28,6 +28,37 @@ static void clicked_cancel_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void
 	create_calendar_view(conform);
 }
 
+void crate_map_view(Evas_Object *parent){
+
+	Evas_Object *scroller, *grid, *map;
+
+
+	scroller = elm_scroller_add(parent);
+	elm_scroller_bounce_set(scroller,EINA_FALSE, EINA_TRUE);
+	elm_scroller_policy_set(scroller,ELM_SCROLLER_POLICY_OFF,ELM_SCROLLER_POLICY_AUTO);
+
+	grid = elm_grid_add(scroller);
+	evas_object_size_hint_weight_set(grid, EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
+	evas_object_size_hint_align_set(grid, EVAS_HINT_FILL, EVAS_HINT_FILL);
+
+	map = elm_map_add(grid);
+	elm_map_zoom_mode_set(map,ELM_MAP_ZOOM_MODE_MANUAL);
+	elm_map_zoom_set(map,15);
+	elm_map_region_bring_in(map,127.04,37.28);
+	elm_grid_pack(grid,map,0,0,100,100);
+	evas_object_show(map);
+
+	elm_object_content_set(scroller, grid);
+}
+
+static void clicked_location_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
+	Evas_Object *parent = data;
+
+	crate_map_view(parent);
+}
+
+
+
 void create_create_view(Evas_Object *parent){
 	Evas_Object *conform = parent;
 	Evas_Object
@@ -99,6 +130,14 @@ void create_create_view(Evas_Object *parent){
 	evas_object_show(entry);
 	elm_grid_pack(grid,entry,3,28,94,10);
 
+	button = elm_button_add(grid);
+	image = elm_image_add(button);
+	elm_image_file_set(image,ICON_DIR"/gps_icon.png",NULL);
+	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
+	elm_object_part_content_set(button,"icon",image);
+	evas_object_smart_callback_add(button,"clicked",clicked_location_btn_cb,navi);
+	evas_object_show(button);
+	elm_grid_pack(grid,button,3,43,10,10);
 
 
 

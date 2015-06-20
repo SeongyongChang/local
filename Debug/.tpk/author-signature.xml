@@ -4,7 +4,55 @@
 <SignatureMethod Algorithm="http://www.w3.org/2001/04/xmldsig-more#rsa-sha256"></SignatureMethod>
 <Reference URI="bin%2Flocal">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
-<DigestValue>GC31NlL0Ij1NSeVVuTTLnNmt2j2m9QZ5ugeAg3i0R2s=</DigestValue>
+<DigestValue>GHDYw3qgFVxAUA5qs3Al54p4nv+l5dOhbkaaKdY6qd4=</DigestValue>
+</Reference>
+<Reference URI="res%2F.DS_Store">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>e2SyBKVePBlDWPc5Aeyq3bCBDMQTPZ+z++OGmLs+s2U=</DigestValue>
+</Reference>
+<Reference URI="res%2Fcalendar_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>efBPMR0/Ii2Gdmyo0kQRtQUcPyDAgAc3tv/qe65QRXI=</DigestValue>
+</Reference>
+<Reference URI="res%2Fcancel_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>3l1MIuyTFEzf117tE9FlEmjWpb5AlcS1+Vn/WMkuvtM=</DigestValue>
+</Reference>
+<Reference URI="res%2Fcreate_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>InpXaB3MaoNlOTywDkAtFHOeux4QgUVsCepd2JPV+J4=</DigestValue>
+</Reference>
+<Reference URI="res%2Fgps_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>0J1H/3/v3ufip6vs0QQ78W76qVqGC/sdlvANLOcX+VY=</DigestValue>
+</Reference>
+<Reference URI="res%2Fleft_arrow.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>NCM8U4/+Y/3jipUR9RkVhsq8ik5+9BvlFRqCG59N+Ks=</DigestValue>
+</Reference>
+<Reference URI="res%2Flocal_logo.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>FG6oTHs9Jzzyn8GxQVuw4CI63t5RUVYIHjhHS3ddHxM=</DigestValue>
+</Reference>
+<Reference URI="res%2Flocation_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>SKb8lL6aGCHj/Ouk84Jx5PZlIrY5K1eH44dBrCTHKAM=</DigestValue>
+</Reference>
+<Reference URI="res%2Fok_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>+N/83YcsYnYXYVt1RZKyE4ePVV0AWQb0mn/le5pQ5wY=</DigestValue>
+</Reference>
+<Reference URI="res%2Fright_arrow.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>wdNL2agMdcyP34F0EyqUAkb9ndNf0zL+CBcQPRrJmSo=</DigestValue>
+</Reference>
+<Reference URI="res%2Ftime_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>ybyzdrQv1uD/YLTxMI0V6CP/LWdNbrKTCD0TwXxSc5I=</DigestValue>
+</Reference>
+<Reference URI="res%2Fto_do_list_icon.png">
+<DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
+<DigestValue>+ad6Mu80SDibKT+gK9fFidzlyA2yInovZutNMVO2u/M=</DigestValue>
 </Reference>
 <Reference URI="shared%2Fres%2Flocal.png">
 <DigestMethod Algorithm="http://www.w3.org/2001/04/xmlenc#sha256"></DigestMethod>
@@ -23,11 +71,11 @@
 </Reference>
 </SignedInfo>
 <SignatureValue>
-ZbSL3m0Abq0bP7SGb8UoTK0AoO0WO3X1cfdaYgf/l1JiKE4pfVRMGv5oMi4Kf1fOlBlTSSFau4+M
-awabb9cz0EwVt1cjkHuOP7P4hMa3GWJUV8bMbdRBa+dTdWTRnlpOSCbqPdLpqKU3cer0GDMiOvHY
-PghoLZVG7DHwnXTILiOOu2OSbhYh8pOfnNBPobaJ1Q3cOKm1OvUTWGopEz0b7WYisCpcnvAEOinn
-co0qZE4MYEmEY4E/doUhxI0zM9gLdm4Ng+REh+n+RnW6iNoKGmm1Qn3v5Hmk0N51yEUB+1SpxbqE
-H7+DR+rTbczi3Ii2s/0pLnyZ/yRwW4f9MEqiqw==
+YKV8fNQmf/6kAZCzFywZoG74lW1i7JF7pCrAMm36QFhlrG1itHJ06FWBIvAJnaFwTJUNisPqGlyx
+BMdYqM3yNo+tWYVkuKgzq2Vqq0957BuKhgWYmNSmSyLCJCrYrrXP0VoaXPsi28dZfr/szwFdS4FO
+H6Nh1iZ9c0eh8RutAWoCPQ2Q2SypqwpD2eCPBprPEO/u7eRtrfw3Zhf5Pi2Mj10EfVA6JYG4WQui
+AALquyWsBKKfBmG4TQF064mw1LQ2GsSOV8x0rD9dhZGIY72o56Qn7QGTJkYcSjnKF4nJGTQahUoe
+dsxspH1D7iyWE9wxcmZ7YPf3E4qKl5+spbSHnQ==
 </SignatureValue>
 <KeyInfo>
 <X509Data>
@@ -35,20 +83,20 @@ H7+DR+rTbczi3Ii2s/0pLnyZ/yRwW4f9MEqiqw==
 MIIDljCCAn6gAwIBAgIBATANBgkqhkiG9w0BAQsFADCBsDELMAkGA1UEBhMCS1IxFDASBgNVBAgM
 C1NvdXRoIEtvcmVhMQ4wDAYDVQQHDAVTdXdvbjEmMCQGA1UECgwdU2Ftc3VuZyBFbGVjdHJvbmlj
 cyBDby4sIEx0ZC4xDzANBgNVBAsMBk1vYmlsZTEgMB4GA1UEAwwXU2Ftc3VuZyBBdXRob3IgQ0Eg
-Q2xhc3MxIDAeBgkqhkiG9w0BCQEWEXRpemVuQHNhbXN1bmcuY29tMB4XDTE1MDQwNzAzNTYyMloX
-DTE2MDQwNjAzNTYyMlowUDEJMAcGA1UEBhMAMQkwBwYDVQQIEwAxCTAHBgNVBAcTADEJMAcGA1UE
+Q2xhc3MxIDAeBgkqhkiG9w0BCQEWEXRpemVuQHNhbXN1bmcuY29tMB4XDTE1MDYxOTE5MjQ1MVoX
+DTE2MDYxODE5MjQ1MVowUDEJMAcGA1UEBhMAMQkwBwYDVQQIEwAxCTAHBgNVBAcTADEJMAcGA1UE
 ChMAMQkwBwYDVQQLEwAxFzAVBgNVBAMTDlNlb25neW9uZ0NoYW5nMIIBIjANBgkqhkiG9w0BAQEF
-AAOCAQ8AMIIBCgKCAQEAglvEZx0Fra+vkQdRztDr7+5HvAN15CI+0lMgc/VJ+jW/jbcRnA1yJlfO
-hsa5gDRt9oYAeT0klE2S/OPggKv2ld2+X9FnsO0mLM76YKE0E++g+2uvWwHjIe9rDjomev44uagc
-+YPY5GAn/zO4lL0erdEq+YfodyQll6OEb9tKEbBy4WhUcH/0+TiwVPebtVS9c4Q8Id/y9lrkMMrm
-+WHWs9uffsdh6HfvIelpuuTY1b7soJXnmyqmM0PYjSckOrqNzBrcd4INS7jSRe0MIfLNsUI7kOsm
-0l/e92Vlio5sfW1IiiMtAMegltC31RYzlTQtjwYuiIQlL6ToOvHqczRS0QIDAQABoxowGDAJBgNV
-HRMEAjAAMAsGA1UdDwQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAJlhjIn8ZucJZ3DZeA9tQ5g3X
-KI4Re1RxsZinEMcun0ivJoGoSUE55uQ/ixGLfUYz1a8JAXUyzVgSiHV4TSt1xyNhsRX39dAjVfYp
-vGR4VvJ4/nAz6fDOvH9EKXtdEbbI5SE4JkmVECSmScyAYdsN/uMh1ytKMIeSXA/e6CdsC0VKGLbd
-E6UkAGYOUizGY2KjKN7daCEx+iGNI4xDPiYy4NXxd6C6cMbwUE88IuCdtVaeH/4LPHz/zClrsCrV
-/BCKdhORBlvJgjz0Vw27tz7psEL6ueiKwcSUWert6eSfdiHrX2siLuZMxrkPbcMgv1i1buqRSMvO
-qCbfzUyRwt2x+w==
+AAOCAQ8AMIIBCgKCAQEAhVjUZ3sP7vIyhs076SUTR61T/9jCLMu0rkHGtFjYQM6AW2TbNCezGB0X
+QFr4YjTL9GHj5vjFA6tlPZ2C/pQSk/42XfRdYCu+h8lCgxGS2D7EWic3LVeTXcMuapgqW981sK7c
+xwZUSQuO3KIMuOgwuZNPjvQbTJ3QJBQWyN5KVRCHStXtJQ1zsKUXxGYs2anV7Dc81uIbQM32hi4D
+UHFTtrA6VixnrwPtd9BYB7gWa77hvNVdAIzDJUBK5jh4nJyesRrfhUB5zRfn47ENqrO3icb3La2/
+MjQTTX973WDcgaJYyUfuAT9iI5FQoTBDECNFMp9Oet9xA5DWjpbgTD6dwQIDAQABoxowGDAJBgNV
+HRMEAjAAMAsGA1UdDwQEAwIHgDANBgkqhkiG9w0BAQsFAAOCAQEAY8IPAC9jflYFE8rEwOs9KsjZ
+Rt64MGdTpa5Yi9L92XlBIVNdWXkavGSwmvASBZEC35Oz7q/1u6PG3G79VhOgNtX86BqRcf+ROddT
+RykOGyX9DbNiYOMmcAhWhpLO5dyHbKUR8H2PNNQD3G+DVy5w/A+WfF0UhUo5v6aLk+DSNPBx4iAW
+N1ILYA9RECao4TgD8JAW/f037c1embcEMj8fOuN4XDcFlY4scC9wq8S9GobS5LmFsvBFJMf2EKzC
+nlqfGPGkgk+43Xuzmgpl061xmJq98SfnjFSt6Fjr1fTfAVSUqBCIYEp+53wMe5RiHNXJWPJ5H2nK
+ehBhY1wIp7le8g==
 </X509Certificate>
 <X509Certificate>
 MIIDmzCCAoOgAwIBAgICYygwDQYJKoZIhvcNAQELBQAwXjEaMBgGA1UECgwRVGl6ZW4gQXNzb2Np

@@ -209,7 +209,8 @@ src/local.d: ../src/local.c /Users/seongyong/workspace/local/inc/local.h \
   /Users/seongyong/tizen-sdk/tools/smart-build-interface/../../platforms/mobile-2.3/rootstraps/mobile-2.3-device.core/usr/include/dlog/dlog.h \
   /Users/seongyong/workspace/local/inc/view/calendar_view.h \
   /Users/seongyong/workspace/local/inc/view/todo_list_view.h \
-  /Users/seongyong/workspace/local/inc/view/create_view.h
+  /Users/seongyong/workspace/local/inc/view/create_view.h \
+  /Users/seongyong/workspace/local/inc/db/local_db.h
 
 /Users/seongyong/workspace/local/inc/local.h:
 
@@ -634,3 +635,5 @@ src/local.d: ../src/local.c /Users/seongyong/workspace/local/inc/local.h \
 /Users/seongyong/workspace/local/inc/view/todo_list_view.h:
 
 /Users/seongyong/workspace/local/inc/view/create_view.h:
+
+/Users/seongyong/workspace/local/inc/db/local_db.h:

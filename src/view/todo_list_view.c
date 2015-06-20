@@ -7,6 +7,8 @@
 
 #include "view/todo_list_view.h"
 
+int current_tag = 0;
+
 static void clicked_calendar_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
 	Evas_Object *conform = data;
 
@@ -47,7 +49,10 @@ void set_todo_list_view(Evas_Object *parent){
 	elm_bg_color_set(bg, 38, 116, 212);
 	evas_object_show(bg);
 
-	navi_it = elm_naviframe_item_push(navi,"ALL",NULL,NULL,scroller,NULL);
+
+
+
+	navi_it = elm_naviframe_item_push(navi,schedule_tag[current_tag]->tag,NULL,NULL,scroller,NULL);
 
 	button = elm_button_add(navi);
 	image = elm_image_add(button);

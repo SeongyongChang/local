@@ -1,5 +1,6 @@
 #include <tizen.h>
 #include "local.h"
+#include "db/local_db.h"
 
 static void
 win_delete_request_cb(void *data, Evas_Object *obj, void *event_info)
@@ -21,6 +22,7 @@ static void clicked_strat_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void 
 	create_calendar_view(conform);
 }
 
+
 static void
 create_base_gui(appdata_s *ad)
 {
@@ -31,8 +33,59 @@ create_base_gui(appdata_s *ad)
 
 	int i;
 
-	for(i = 0; i < MAX_NUMBER_OF_SCHEDULE; i++)
+	for(i = 0; i < MAX_NUMBER_OF_SCHEDULE; i++){
 		local_schedules[i] = calloc(1, sizeof(schedule_info_s));
+		schedule_tag[i] = calloc(1,sizeof(tag_c));
+	}
+
+	strcpy(schedule_tag[0]->tag,"ALL");
+	strcpy(schedule_tag[1]->tag,"NONE");
+	strcpy(schedule_tag[2]->tag,"WORK");
+	strcpy(schedule_tag[3]->tag,"PERSONAL");
+	strcpy(schedule_tag[4]->tag,"EXCERCISE");
+
+	strcpy(local_schedules[0]->title,"schedule0");
+	strcpy(local_schedules[1]->title,"schedule1");
+	strcpy(local_schedules[2]->title,"schedule2");
+	strcpy(local_schedules[3]->title,"schedule3");
+	strcpy(local_schedules[4]->title,"schedule4");
+	strcpy(local_schedules[5]->title,"schedule5");
+	strcpy(local_schedules[6]->title,"schedule6");
+	strcpy(local_schedules[7]->title,"schedule7");
+	strcpy(local_schedules[8]->title,"schedule8");
+	strcpy(local_schedules[9]->title,"schedule9");
+
+	strcpy(local_schedules[0]->tag,"WORK");
+	strcpy(local_schedules[1]->tag,"WORK");
+	strcpy(local_schedules[2]->tag,"EXCERCISE");
+	strcpy(local_schedules[3]->tag,"PERSONAL");
+	strcpy(local_schedules[4]->tag,"PERSONAL");
+	strcpy(local_schedules[5]->tag,"WORK");
+	strcpy(local_schedules[6]->tag,"NONE");
+	strcpy(local_schedules[7]->tag,"WORK");
+	strcpy(local_schedules[8]->tag,"WORK");
+	strcpy(local_schedules[9]->tag,"EXERCISE");
+
+//sqlite start
+
+	initDb();
+
+	createTable();
+
+	showRecord();
+
+//	char *sqlbuff = "INSERT INTO LOCAL VALUES(\'a\',\'b\',\'c\',\'d\',\'2015-05-12\',\'f\',\'g\',1);";
+//
+//	sqlite3_exec(db,sqlbuff,NULL,0,NULL);
+//
+//	char *sqlbuff1 = "INSERT INTO LOCAL VALUES(\'x\',\'y\',\'z\',\'w\',\'2015-05-12\',\'s\',\'q\',2);";
+//
+//	sqlite3_exec(db,sqlbuff1,NULL,0,NULL);
+//
+//	ShowRecords();
+
+
+//
 
 	/* Window */
 	ad->win = elm_win_util_standard_add(PACKAGE, PACKAGE);
@@ -167,20 +220,8 @@ main(int argc, char *argv[])
 	time(&time_ptr);
 	c_time = localtime(&time_ptr);
 
-	FILE* fp;
 
-	fp = fopen("./schedule_info.txt","rw");
 
-	fprintf(fp,"SCHEDULE$\n");
-	fprintf(fp,"TITLE$schedule1\n");
-	fprintf(fp,"MEMO$schedule1\n");
-	fprintf(fp,"START$schedule1\n");
-	fprintf(fp,"FINISH$schedule1\n");
-	fprintf(fp,"LOCATION_X$schedule1\n");
-	fprintf(fp,"LOCATION_Y$schedule1\n");
-	fprintf(fp,"TAG$schedule1\n");
-
-	fclose(fp);
 
 	int temp[12] = {31,28,31,30,31,30,31,31,30,31,30,31};
 
