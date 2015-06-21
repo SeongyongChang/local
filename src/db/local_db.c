@@ -20,6 +20,7 @@ int callback(void *counter, int argc, char **argv, char **azColName)
    (*localcounter)++;
    dlog_print(DLOG_DEBUG, LOG_TAG, "\n");
 
+
    return 0;
 }
 
@@ -37,14 +38,14 @@ void initDb(){
 	strncat(path, resource, siz);
 	strncat(path, "local.db", siz);
 
-	memset(path, 0 , siz);
+//	memset(path, 0 , siz); // db data initializer
 
 	sqlite3_open(path, &db);
 
 	free(path);
 }
 
-void createTable(){
+void createScheduleTable(){
 	int ret;
 	char *ErrMsg;
 	char *sql =
@@ -61,6 +62,16 @@ void createTable(){
 	sqlite3_exec(db, sql, NULL, 0, &ErrMsg);
 }
 
+void createTagTable(){
+	int ret;
+		char *ErrMsg;
+		char *sql =
+				"CREATE TABLE IF NOT EXISTS TAG(" \
+				"TAG TEXT PRIMARY KEY);";
+
+		sqlite3_exec(db, sql, NULL, 0, &ErrMsg);
+}
+
 void showRecord(){
 	   char *sql = "SELECT * FROM LOCAL";
 	   int counter = 0, ret = 0;
@@ -69,4 +80,22 @@ void showRecord(){
 	   sqlite3_exec(db, sql, callback, &counter, &ErrMsg);
 
 	   return;
+}
+
+void showTags(){
+	   char *sql = "SELECT * FROM TAG";
+	   int counter = 0, ret = 0;
+	   char *ErrMsg;
+
+	   sqlite3_exec(db, sql, callback, &counter, &ErrMsg);
+
+	   return;
+}
+
+void insertTag(char* tag){
+	dlog_print(DLOG_DEBUG, LOG_TAG, tag);
+	char sqlbuff[100];
+	sprintf(sqlbuff,"INSERT INTO TAG VALUES(\'%s\');",tag);
+	dlog_print(DLOG_DEBUG, LOG_TAG, sqlbuff);
+	sqlite3_exec(db,sqlbuff,NULL,0,NULL);
 }

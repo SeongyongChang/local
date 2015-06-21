@@ -10,6 +10,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <sqlite3.h>
+#include <string.h>
 
 #include "view/calendar_view.h"
 #include "view/todo_list_view.h"
@@ -59,6 +60,8 @@ char c_time_str[40];
 schedule_info_s *local_schedules[MAX_NUMBER_OF_SCHEDULE];
 tag_c *schedule_tag[MAX_NUMBER_OF_SCHEDULE];
 int day_of_month[12];
+
+int num_of_schedule;
 
 
 

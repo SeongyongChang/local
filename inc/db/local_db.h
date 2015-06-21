@@ -23,7 +23,10 @@
 sqlite3 *db;
 
 void initDb();
-void createTable();
+void createScheduleTable();
+void createTagTable();
 void showRecord();
+void showTags();
+void insertTag(char* tag);
 
 #endif /* LOCAL_DB_H_ */

@@ -9,8 +9,7 @@ win_delete_request_cb(void *data, Evas_Object *obj, void *event_info)
 }
 
 static void
-win_back_cb(void *data, Evas_Object *obj, void *event_info)
-{
+win_back_cb(void *data, Evas_Object *obj, void *event_info){
 	appdata_s *ad = data;
 	/* Let window go to hide state. */
 	elm_win_lower(ad->win);
@@ -70,9 +69,16 @@ create_base_gui(appdata_s *ad)
 
 	initDb();
 
-	createTable();
+	createScheduleTable();
+	createTagTable();
+
+//	char *sql = "WORK";
+//
+//	insertTag(sql);
 
 	showRecord();
+	showTags();
+
 
 //	char *sqlbuff = "INSERT INTO LOCAL VALUES(\'a\',\'b\',\'c\',\'d\',\'2015-05-12\',\'f\',\'g\',1);";
 //
