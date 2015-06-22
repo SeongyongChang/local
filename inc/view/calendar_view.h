@@ -9,7 +9,9 @@
 #define CALENDAR_VIEW_H_
 
 #include "local.h"
+#include "view/create_view.h"
+#include "view/todo_list_view.h"
 
-void create_calendar_view(Evas_Object *parent);
+void create_calendar_view(void *parent);
 
 #endif /* CALENDAR_VIEW_H_ */

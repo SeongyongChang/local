@@ -16,9 +16,9 @@ win_back_cb(void *data, Evas_Object *obj, void *event_info){
 }
 
 static void clicked_strat_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
-	Evas_Object *conform = data;
+	appdata_s *ad = data;
 
-	create_calendar_view(conform);
+	create_calendar_view(ad);
 }
 
 
@@ -37,33 +37,33 @@ create_base_gui(appdata_s *ad)
 		schedule_tag[i] = calloc(1,sizeof(tag_c));
 	}
 
-	strcpy(schedule_tag[0]->tag,"ALL");
-	strcpy(schedule_tag[1]->tag,"NONE");
-	strcpy(schedule_tag[2]->tag,"WORK");
-	strcpy(schedule_tag[3]->tag,"PERSONAL");
-	strcpy(schedule_tag[4]->tag,"EXCERCISE");
-
-	strcpy(local_schedules[0]->title,"schedule0");
-	strcpy(local_schedules[1]->title,"schedule1");
-	strcpy(local_schedules[2]->title,"schedule2");
-	strcpy(local_schedules[3]->title,"schedule3");
-	strcpy(local_schedules[4]->title,"schedule4");
-	strcpy(local_schedules[5]->title,"schedule5");
-	strcpy(local_schedules[6]->title,"schedule6");
-	strcpy(local_schedules[7]->title,"schedule7");
-	strcpy(local_schedules[8]->title,"schedule8");
-	strcpy(local_schedules[9]->title,"schedule9");
-
-	strcpy(local_schedules[0]->tag,"WORK");
-	strcpy(local_schedules[1]->tag,"WORK");
-	strcpy(local_schedules[2]->tag,"EXCERCISE");
-	strcpy(local_schedules[3]->tag,"PERSONAL");
-	strcpy(local_schedules[4]->tag,"PERSONAL");
-	strcpy(local_schedules[5]->tag,"WORK");
-	strcpy(local_schedules[6]->tag,"NONE");
-	strcpy(local_schedules[7]->tag,"WORK");
-	strcpy(local_schedules[8]->tag,"WORK");
-	strcpy(local_schedules[9]->tag,"EXERCISE");
+//	strcpy(schedule_tag[0]->tag,"ALL");
+//	strcpy(schedule_tag[1]->tag,"NONE");
+//	strcpy(schedule_tag[2]->tag,"WORK");
+//	strcpy(schedule_tag[3]->tag,"PERSONAL");
+//	strcpy(schedule_tag[4]->tag,"EXCERCISE");
+//
+//	strcpy(local_schedules[0]->title,"schedule0");
+//	strcpy(local_schedules[1]->title,"schedule1");
+//	strcpy(local_schedules[2]->title,"schedule2");
+//	strcpy(local_schedules[3]->title,"schedule3");
+//	strcpy(local_schedules[4]->title,"schedule4");
+//	strcpy(local_schedules[5]->title,"schedule5");
+//	strcpy(local_schedules[6]->title,"schedule6");
+//	strcpy(local_schedules[7]->title,"schedule7");
+//	strcpy(local_schedules[8]->title,"schedule8");
+//	strcpy(local_schedules[9]->title,"schedule9");
+//
+//	strcpy(local_schedules[0]->tag,"WORK");
+//	strcpy(local_schedules[1]->tag,"WORK");
+//	strcpy(local_schedules[2]->tag,"EXCERCISE");
+//	strcpy(local_schedules[3]->tag,"PERSONAL");
+//	strcpy(local_schedules[4]->tag,"PERSONAL");
+//	strcpy(local_schedules[5]->tag,"WORK");
+//	strcpy(local_schedules[6]->tag,"NONE");
+//	strcpy(local_schedules[7]->tag,"WORK");
+//	strcpy(local_schedules[8]->tag,"WORK");
+//	strcpy(local_schedules[9]->tag,"EXERCISE");
 
 //sqlite start
 
@@ -72,9 +72,10 @@ create_base_gui(appdata_s *ad)
 	createScheduleTable();
 	createTagTable();
 
-//	char *sql = "WORK";
-//
-//	insertTag(sql);
+	char *sql = "WORK";
+
+	insertTag(sql);
+	insertTag("STUDY");
 
 	showRecord();
 	showTags();
@@ -135,7 +136,7 @@ create_base_gui(appdata_s *ad)
 	evas_object_size_hint_weight_set(button,EVAS_HINT_EXPAND, EVAS_HINT_EXPAND);
 	evas_object_size_hint_align_set(button,EVAS_HINT_FILL,EVAS_HINT_FILL);
 	elm_object_text_set(button, "START");
-	evas_object_smart_callback_add(button, "clicked", clicked_strat_btn_cb, ad->conform);
+	evas_object_smart_callback_add(button, "clicked", clicked_strat_btn_cb, ad);
 	evas_object_show(button);
 	elm_grid_pack(grid, button, 30, 75, 40, 10);
 

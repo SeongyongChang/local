@@ -24,6 +24,27 @@ int callback(void *counter, int argc, char **argv, char **azColName)
    return 0;
 }
 
+int get_tag_cb(void *counter, int argc, char **argv, char **azColName)
+{
+   int *localcounter = (int *)counter;
+   int i;
+
+
+
+   dlog_print(DLOG_DEBUG, LOG_TAG, "-%d: ", *localcounter);
+
+   for (i = 0; i<argc; i++){
+      dlog_print(DLOG_DEBUG, LOG_TAG, "%s = %s | ", azColName[i], argv[i] ? argv[i] : "NULL");
+      schedule_tag[i] = argv[i] ? argv[i] : "NULL";
+   }
+   (*localcounter)++;
+   dlog_print(DLOG_DEBUG, LOG_TAG, "\n");
+
+
+
+   return 0;
+}
+
 void initDb(){
 
 	sqlite3_config(SQLITE_CONFIG_URI,1);
@@ -51,8 +72,8 @@ void createScheduleTable(){
 	char *sql =
 			"CREATE TABLE IF NOT EXISTS LOCAL(" \
 			"COMMENT TEXT," \
-			"LOCATION_X TEXT," \
-			"LOCATION_Y TEXT," \
+			"LOCATION_X DOUBLE," \
+			"LOCATION_Y DOUBLE," \
 			"TIME_START DATETIME NOT NULL," \
 			"TIME_FINISH DATETIME," \
 			"TAG TEXT," \
@@ -88,6 +109,16 @@ void showTags(){
 	   char *ErrMsg;
 
 	   sqlite3_exec(db, sql, callback, &counter, &ErrMsg);
+
+	   return;
+}
+
+void getTags(){
+	   char *sql = "SELECT * FROM TAG";
+	   int counter = 0, ret = 0;
+	   char *ErrMsg;
+
+	   sqlite3_exec(db, sql, get_tag_cb, &counter, &ErrMsg);
 
 	   return;
 }

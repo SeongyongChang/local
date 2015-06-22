@@ -11,6 +11,7 @@ RM := rm -rf
 -include src/view/subdir.mk
 -include src/db/subdir.mk
 -include src/subdir.mk
+-include res/subdir.mk
 -include subdir.mk
 -include objects.mk
 ifneq ($(MAKECMDGOALS),clean)

@@ -26,6 +26,7 @@
 #define PACKAGE "org.tizen.local"
 #endif
 
+#define ELM_EDJ "/opt/usr/apps/org.tizen.local/res/ui_controls.edj"
 #define ICON_DIR "/opt/usr/apps/org.tizen.local/res/"
 #define FILE_DIR "/opt/usr/apps/org.tizen.local/res/"
 #define MAX_NUMBER_OF_SCHEDULE 100

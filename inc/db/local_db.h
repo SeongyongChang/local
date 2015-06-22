@@ -27,6 +27,7 @@ void createScheduleTable();
 void createTagTable();
 void showRecord();
 void showTags();
+void getTags();
 void insertTag(char* tag);
 
 #endif /* LOCAL_DB_H_ */

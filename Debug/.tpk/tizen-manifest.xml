@@ -1,11 +1,13 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <manifest xmlns="http://tizen.org/ns/packages" api-version="2.3" package="org.tizen.local" version="1.0.0">
-	<profile name="mobile" />
-	<ui-application appid="org.tizen.local" exec="local" type="capp" multiple="false" taskmanage="true" nodisplay="false">
-		<icon>local.png</icon>
-		<label>local</label>
-	</ui-application>
-	<privileges>
-		<privilege>http://tizen.org/privilege/systemsettings</privilege>
-	</privileges>
+    <profile name="mobile"/>
+    <ui-application appid="org.tizen.local" exec="local" multiple="false" nodisplay="false" taskmanage="true" type="capp">
+        <label>local</label>
+        <icon>local.png</icon>
+    </ui-application>
+    <privileges>
+        <privilege>http://tizen.org/privilege/systemsettings</privilege>
+        <privilege>http://tizen.org/privilege/location</privilege>
+        <privilege>http://tizen.org/privilege/internet</privilege>
+    </privileges>
 </manifest>

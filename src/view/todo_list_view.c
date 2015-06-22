@@ -10,15 +10,15 @@
 int current_tag = 0;
 
 static void clicked_calendar_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
-	Evas_Object *conform = data;
+	appdata_s *ad = data;
 
-	create_calendar_view(conform);
+	create_calendar_view(ad);
 }
 
 static void clicked_create_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
-	Evas_Object *conform = data;
+	appdata_s *ad = data;
 
-	create_create_view(conform);
+	create_create_view(ad);
 }
 
 void set_todo_list_view(Evas_Object *parent){
@@ -72,8 +72,9 @@ void set_todo_list_view(Evas_Object *parent){
 
 }
 
-void create_todo_list_view(Evas_Object *parent){
-	Evas_Object *conform = parent;
+void create_todo_list_view(void *parent){
+	appdata_s *ad = parent;
+	Evas_Object *conform = ad->conform;
 
 	Evas_Object
 		*layout,
@@ -113,14 +114,14 @@ void create_todo_list_view(Evas_Object *parent){
 
 	elm_object_part_content_set(todo_layout, "elm.swallow.content", todo_navi);
 
-	navi_it = elm_naviframe_item_push(navi,"Todo list",NULL,NULL,scroller,NULL);
+	navi_it = elm_naviframe_item_push(navi,"Todo List",NULL,NULL,scroller,NULL);
 
 	button = elm_button_add(navi);
 	image = elm_image_add(button);
 	elm_image_file_set(image,ICON_DIR"/calendar_icon.png",NULL);
 	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
 	elm_object_part_content_set(button,"icon",image);
-	evas_object_smart_callback_add(button,"clicked",clicked_calendar_btn_cb,conform);
+	evas_object_smart_callback_add(button,"clicked",clicked_calendar_btn_cb,ad);
 	elm_object_item_part_content_set(navi_it,"title_left_btn",button);
 
 	button = elm_button_add(navi);
@@ -128,7 +129,7 @@ void create_todo_list_view(Evas_Object *parent){
 	elm_image_file_set(image,ICON_DIR"/create_icon.png",NULL);
 	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
 	elm_object_part_content_set(button,"icon",image);
-	evas_object_smart_callback_add(button,"clicked",clicked_create_btn_cb,conform);
+	evas_object_smart_callback_add(button,"clicked",clicked_create_btn_cb,ad);
 	elm_object_item_part_content_set(navi_it,"title_right_btn",button);
 
 //	Evas_Object *toolbar = elm_toolbar_add(navi);

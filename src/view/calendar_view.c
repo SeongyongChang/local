@@ -8,15 +8,15 @@
 #include "view/calendar_view.h"
 
 static void clicked_todo_list_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
-	Evas_Object *conform = data;
+	appdata_s *ad = data;
 
-	create_todo_list_view(conform);
+	create_todo_list_view(ad);
 }
 
 static void clicked_create_btn_cb(void *data, Evas_Object *obj EINA_UNUSED, void *event_info EINA_UNUSED){
-	Evas_Object *conform = data;
+	appdata_s *ad = data;
 
-	create_create_view(conform);
+	create_create_view(ad);
 }
 
 void set_calendar_view(Evas_Object *parent){
@@ -111,9 +111,11 @@ void set_calendar_view(Evas_Object *parent){
 
 }
 
-void create_calendar_view(Evas_Object *parent){
+void create_calendar_view(void *parent){
 
-	Evas_Object *conform = parent;
+	appdata_s *ad = parent;
+
+	Evas_Object *conform = ad->conform;
 
 	Evas_Object
 		*layout,
@@ -160,7 +162,7 @@ void create_calendar_view(Evas_Object *parent){
 	elm_image_file_set(image,ICON_DIR"/to_do_list_icon.png",NULL);
 	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
 	elm_object_part_content_set(button,"icon",image);
-	evas_object_smart_callback_add(button,"clicked",clicked_todo_list_btn_cb,conform);
+	evas_object_smart_callback_add(button,"clicked",clicked_todo_list_btn_cb,parent);
 	elm_object_item_part_content_set(navi_it,"title_left_btn",button);
 
 	button = elm_button_add(navi);
@@ -168,7 +170,7 @@ void create_calendar_view(Evas_Object *parent){
 	elm_image_file_set(image,ICON_DIR"/create_icon.png",NULL);
 	elm_image_resizable_set(image,EINA_TRUE,EINA_TRUE);
 	elm_object_part_content_set(button,"icon",image);
-	evas_object_smart_callback_add(button,"clicked",clicked_create_btn_cb,conform);
+	evas_object_smart_callback_add(button,"clicked",clicked_create_btn_cb,parent);
 	elm_object_item_part_content_set(navi_it,"title_right_btn",button);
 
 	elm_object_part_content_set(layout, "elm.swallow.content", navi);

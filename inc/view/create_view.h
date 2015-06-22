@@ -9,8 +9,10 @@
 #define CREATE_VIEW_H_
 
 #include "local.h"
+#include "view/calendar_view.h"
 
-void create_create_view(Evas_Object *parent);
+void create_create_view(void *parent);
+
 
 
 #endif /* CREATE_VIEW_H_ */

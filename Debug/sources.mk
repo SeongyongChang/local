@@ -32,4 +32,5 @@ SUBDIRS := \
 src/view \
 src \
 src/db \
+res \
 
